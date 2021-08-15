@@ -3,4 +3,5 @@ RUN apt update && apt install -y  sssd libnss-sss libpam-sss realmd sssd-tools o
 RUN mkdir /var/run/dbus
 RUN mkdir /var/run/sshd
 #CMD ["/bin/sleep", "3650d"]
-CMD ["sbin","init"]
+#CMD ["sbin","init"]
+CMD ["realmd.run"]

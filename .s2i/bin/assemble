@@ -1,3 +1,2 @@
 #!/bin/bash
-sudo apt update && sudo apt install -y  sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mkhomedir adcli samba-common krb5-user ldap-utils packagekit
-sudo mkdir -p /var/run/dbus /var/run/sshd
+echo "Nothing to build"

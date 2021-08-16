@@ -1,0 +1,8 @@
+#!/bin/bash
+/bin/dbus-daemon --system --fork
+echo $DOMAIN_PASSWD | kinit $DOMAIN_USER@$DOMAIN
+/usr/sbin/realm -v join $DOMAIN
+#mv /etc/sssd/sssd.conf.openforce /etc/sssd/sssd.conf
+#chmod 0600 /etc/sssd/sssd.conf
+/usr/sbin/sssd -f
+/usr/sbin/sshd -D

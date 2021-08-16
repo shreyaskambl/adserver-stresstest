@@ -1,1 +1,1 @@
-echo "Nothing to Build"
+docker build -f Dockerfile

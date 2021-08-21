@@ -3,7 +3,7 @@ RUN yum install -y sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mk
 RUN mkdir /var/run/dbus /var/run/sshd
 COPY ./.s2i/bin/ /usr/local/s2i
 RUN chown -R root:root /opt/app-root
-USER 1
+USER 0
 CMD ["/bin/sleep", "3650d"]
 
 #FROM ubuntu

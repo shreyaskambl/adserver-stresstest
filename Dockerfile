@@ -4,6 +4,8 @@ RUN yum install -y sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mk
 RUN mkdir /var/run/dbus
 RUN mkdir /var/run/sshd
 COPY ./.s2i/bin/ /usr/local/s2i
+RUN chown -R 1001:1001 /opt/app-root
+USER 1001
 #CMD ["/usr/local/s2i/run"]
 
 #COPY realmd.run /usr/local/bin/realmd.run

@@ -2,7 +2,7 @@ FROM openshift/base-centos7
 RUN yum install -y sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mkhomedir adcli samba-common krb5-user ldap-utils packagekit
 RUN mkdir /var/run/dbus /var/run/sshd
 COPY ./.s2i/bin/ /usr/local/s2i
-RUN chown -R USER root:root /opt/app-root
+RUN chown -R root:root /opt/app-root
 USER root:root
 CMD ["/bin/sleep", "3650d"]
 

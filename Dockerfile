@@ -1,13 +1,15 @@
-FROM ubuntu
-RUN apt update && apt install -y  sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mkhomedir adcli samba-common krb5-user ldap-utils packagekit
-RUN mkdir /var/run/dbus
-RUN mkdir /var/run/sshd
+FROM openshift/base-centos7
+RUN yum install -y sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mkhomedir adcli samba-common krb5-user ldap-utils packagekit
+RUN mkdir /var/run/dbus /var/run/sshd
 COPY ./.s2i/bin/ /usr/local/s2i
-CMD ["usage"]
+RUN chown -R 1001:1001 /opt/app-root
+USER 1001
 
+#FROM ubuntu
+#RUN apt update && apt install -y  sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mkhomedir adcli samba-common krb5-user ldap-utils packagekit
 #FROM ubuntu:latest
 #RUN apt update && apt install -y  sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mkhomedir adcli samba-common krb5-user ldap-utils packagekit
-#RUN yum install -y sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mkhomedir adcli samba-common krb5-user ldap-utils packagek
+#RUN yum install -y sssd libnss-sss libpam-sss realmd sssd-tools oddjob oddjob-mkhomedir adcli samba-common krb5-user ldap-utils packagekit
 #RUN mkdir /var/run/dbus
 #RUN mkdir /var/run/sshd
 
@@ -21,5 +23,6 @@ CMD ["usage"]
 
 #COPY realmd.run /usr/local/bin/realmd.run
 #CMD ["/bin/sleep", "3650d"]
+#CMD ["usage"]
 #CMD ["sbin","init"]
 #CMD ["/usr/local/bin/realmd.run"]

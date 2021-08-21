@@ -1,3 +1,2 @@
 #!/bin/bash
-echo "---> Installing application source"
-cp -Rf /tmp/src/. ./
+echo "---> Nothing to Build"

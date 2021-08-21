@@ -7,6 +7,7 @@ RUN mkdir /var/run/sshd
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/s2i
 COPY ./.s2i/bin/ /usr/local/s2i
 
+RUN mkdir -p /opt/app-root /opt/app-root/src
 RUN chown -R 1001:1001 /opt/app-root
 USER 1001
 #CMD ["/usr/local/s2i/run"]
